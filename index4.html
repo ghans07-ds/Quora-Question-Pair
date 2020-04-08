@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	body
+	{
+		background-color:lightgreen; 
+	}
+	h1{
+		margin-left: 500px;
+		color: blue;
+	}
+
+	textarea{
+		margin-left: 200px;
+		font-size: 20px;
+	}
+	button{
+		margin-left: 550px;
+		margin-top: 50px;
+		width: 100px;
+		height: 30px;
+		color: blue;
+		background-color: lightblue;
+	}
+	p{
+		margin-left: 200px;
+		font-size: 30px;
+	}
+</style>
+<body>
+
+	<h1>Sentence Similarity</h1>
+	<hr>
+	<form  action="{{url_for('predict')}}" method="post">
+	
+    	<textarea placeholder="sentence1" rows="1" cols="80" name="sent1"></textarea><br><br>
+    	<textarea placeholder="sentence1" rows="1" cols="80" name="sent2"></textarea>
+    	<br>
+    	<button type="submit" name="submit">Check</button>
+    	<p>{{prediction_text}}</p>
+    	
+    	
+	</form>
+</body>
+</html>

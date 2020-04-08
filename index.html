@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Summarizer</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600;800&displayswap');
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #f2f3f7;
+			overflow: hidden;
+		}
+		h1{
+			display: block;
+			text-align: center;
+			color: #6a2fc2;
+			font-family: 'Roboto Slab', serif;
+			font-size: 42px;
+			font-weight: bolder;
+			text-transform:capitalize;
+			text-decoration: underline;
+		}
+		.texta_paragraph{
+			display: block;
+			position: relative;
+			left: 10%;
+			font-family: 'Roboto Slab', serif;
+			box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+			padding: 0.5%;
+			border: none;
+		}
+		.texta_paragraph::placeholder{
+			text-align: center;
+			font-size: medium;
+			font-weight: 500;
+			font-size: 20px;
+		}
+		.btn_Sub{
+			margin: 2%;
+			position: relative;
+			display: inline-block;
+			width: 20%;
+			height: 3.5rem;
+			letter-spacing: 2px;
+			font-size: 1.9rem;
+			font-weight: 800;
+			font-family: 'Roboto Slab', serif;
+			text-transform:capitalize;
+			left: 40%;
+			color: #5a84a2;
+			border-radius: 40px;
+			box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+			border: 2px solid rgba(0, 0, 0, 0.5);
+			background-color: snow;
+			outline: none;
+		}
+		.btn_Sub:hover{
+			border: none;
+			background-color: #e2e3e7;
+			box-shadow: inset -3px -3px 8px rgba(255, 255, 255, 1), inset -3px -3px 12px rgba(255, 255, 255, 0.5), inset 3px 3px 4px rgba(255, 255, 255, 0.1), inset 3px 3px 8px rgba(0, 0, 0, 0.15);
+		}
+		.btn_Sub:hover span{
+			display: inline-block;
+			transform: scale(0.98);
+		}
+		p{
+			display: none;
+			position: relative;
+			margin-top: 2%;
+			left: 10%;
+			justify-content: center;
+			align-items: center;
+			width: 80%;
+			background: snow;
+			font-family: 'Roboto Slab', serif;
+			box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+			padding: 0.5%;
+			text-align: justify;
+		}
+
+		@media screen and (max-width: 1024px) {
+			h1{
+				margin: 3%;
+				font-size: 50px;
+				text-align: center;
+			}
+			.texta_paragraph{
+				left: 4%;
+				width: 90%;
+			}
+			.texta_paragraph::placeholder{
+				padding-top: 25%;
+				font-size: 28px;
+			}
+			.btn_Sub{
+				margin-top: 5%;
+			}
+			p{
+				left: 8%;
+			}	
+		}
+	</style>
+</head>
+<body>
+	<h1>Text Summarizer</h1>
+	<hr>
+	<br>
+	<form action="{{url_for('predict')}}" method="post">
+		<textarea name="paragraph_text" class="texta_paragraph" cols="150" rows="30" placeholder="Give me large corpus!"></textarea>
+		<button type="submit" name="submit" class="btn_Sub" onclick="disPtext()"><span>submit</span></button>
+		<p class="p_predication">{{prediction_text}}</p>
+	</form>
+
+	<script>
+		function disPtext(){
+			document.getElementsByTagName("body")[0].style.overflow = "scroll";
+			txt_predict = document.getElementsByClassName("p_predication")[0];
+			txt_predict.focus();
+			txt_predict.style.display = "inline-block";
+		}
+	</script>
+</body>
+</html>
