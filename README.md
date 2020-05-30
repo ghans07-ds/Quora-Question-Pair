@@ -6,5 +6,7 @@ It works on Symantic Sentence Similarity based algorithm. Which extracts feature
 We also applied Random Forest after extracting twenty-five features from Quora-Question-Pair Dataset(Credit:-Kaggle)  
 By using that we got 72% accuracy.
 
-
+![Learning_process](/images/Learning_process.png)
 ![Data_gather](/images/Data_gather.png)
+![Text_process](/images/Text_process.png)
+![feature_extract](/images/feature_extract.png)
